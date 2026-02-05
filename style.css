@@ -1,23 +1,53 @@
-/* ------------------- Variables ------------------- */
-:root {
-    --primary-color: #667eea;
-    --primary-hover: #556cd6;
-    --accent-color: #764ba2;
-    --orange-color: #f97316;
-    --orange-hover: #ea580c;
-    --bg-light: #f9f9f9;
-    --white: #fff;
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+/* Global Reset & Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 1rem;
 }
 
-/* ------------------- Controls / Buttons ------------------- */
+/* Header */
+header {
+    text-align: center;
+}
+
+/* Search Section */
+.search-container {
+    position: relative;
+    max-width: 400px;
+    margin: 1rem auto;
+}
+
+#search-input {
+    width: 100%;
+    padding: 0.7rem 2.5rem 0.7rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+#search-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.3);
+}
+
+.clear-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Navigation Controls */
 .controls {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .controls .filters,
@@ -29,69 +59,75 @@
 
 .controls button {
     padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    color: var(--white);
-    background-color: var(--primary-color);
+    background-color: #667eea;
+    color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: var(--transition);
-}
-
-.controls button:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-2px);
 }
 
 .controls button.active {
-    background-color: var(--accent-color);
+    background-color: #764ba2;
 }
 
-/* ------------------- Recipe Card ------------------- */
-.recipe-card {
-    background-color: var(--white);
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    padding: 1rem;
+/* Counter Display */
+.recipe-info {
+    text-align: center;
     margin-bottom: 1rem;
 }
 
-/* ------------------- Toggle Buttons ------------------- */
+/* Recipe Card Layout */
+.recipe-card {
+    position: relative;
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+/* Interaction Elements */
+.favorite-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.2);
+}
+
 .toggle-btn {
     margin-top: 0.5rem;
     margin-right: 0.5rem;
     padding: 0.4rem 0.8rem;
-    font-size: 0.85rem;
-    color: var(--white);
-    background-color: var(--orange-color);
+    background-color: #f97316;
+    color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: var(--transition);
 }
 
-.toggle-btn:hover {
-    background-color: var(--orange-hover);
-    transform: translateY(-2px);
-}
-
-/* ------------------- Expandable Sections ------------------- */
+/* Expandable Content */
 .steps-container,
 .ingredients-container {
     display: none;
     margin-top: 0.5rem;
     padding-left: 1rem;
-    background-color: var(--bg-light);
-    border-left: 3px solid var(--primary-color);
-    border-radius: 4px;
+    background-color: #f9f9f9;
+    border-left: 3px solid #667eea;
 }
 
-.steps-container.visible,
-.ingredients-container.visible {
-    display: block;
-}
-
-/* ------------------- Nested Steps ------------------- */
-.steps-container ol {
-    /* Your existing styles for the list would go here */
+/* Responsive Design */
+@media (max-width: 480px) {
+    .controls {
+        flex-direction: column;
+    }
+    
+    .controls button {
+        width: 100%;
+    }
 }
