@@ -7,19 +7,35 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header Section -->
   <header>
     <h1>RecipeJS</h1>
     <p>Your Functional Cooking Companion</p>
   </header>
 
-  <!-- Main Content -->
   <main>
-    <div id="recipe-container">
-      <!-- Recipe cards will be rendered here by JavaScript -->
-    </div>
-  </main>
+    <!-- Filter & Sort Controls -->
+    <div class="controls">
 
-  <script src="app.js"></script>
+      <!-- Filter Buttons -->
+      <div class="filters">
+        <button data-filter="all" class="active">All</button>
+        <button data-filter="easy">Easy</button>
+        <button data-filter="medium">Medium</button>
+        <button data-filter="hard">Hard</button>
+        <button data-filter="quick">Quick (&lt;30min)</button>
+      </div>
+
+      <!-- Sort Buttons -->
+      <div class="sorts">
+        <button data-sort="none" class="active">Default</button>
+        <button data-sort="name">Sort by Name</button>
+        <button data-sort="time">Sort by Time</button>
+      </div>
+    </div>
+
+    <!-- Recipes will be rendered here -->
+    <div id="recipe-container"></div>
+  </main>
+  <script src ="app.js"></script>
 </body>
 </html>
